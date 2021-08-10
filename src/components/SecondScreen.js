@@ -1,6 +1,5 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState } from 'react'
 import { useParams, useRouteMatch } from 'react-router-dom'
-import SecondScrList from './secondScrList'
 
 export default function SecondScreen() {
   const [repo, setRepo] = useState('')
@@ -20,19 +19,18 @@ export default function SecondScreen() {
     //todo fetch --repositor to git
   }
 
-  const getRepo=async()=>{
-    const data=await fetch(''${}).then(res=>res.json())
-    setRepoData(data)
+  const getRepo = async () => {
+    // const data=await fetch(''${}).then(res=>res.json())
+    setRepoData()
   }
   console.log(repo)
   console.log(repoData)
-
 
   return (
     <div>
       hello from second page
       <div>
-        <img src="${data.avatar_url}" alt="avatar" />
+        <img src="" alt="avatar" />
       </div>
       <div>
         <ul>
@@ -53,7 +51,7 @@ export default function SecondScreen() {
           />
         </form>
       </div>
-      <SecondScrList/>
+      {/* <SecondScrList /> */}
     </div>
   )
 }
