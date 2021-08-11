@@ -1,5 +1,48 @@
+body {
+  background-color: #a6b3cf;
+}
 .loading {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.firstScreen {
+  margin: 2px;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+div,
+h5,
+button,
+.block {
+  margin: 3px;
+  padding: 0px;
+}
+.c-button:hover {
+  background: #1d49aa;
+}
+
+.c-button {
+  min-width: 50px;
+  font-family: inherit;
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: #4d5f85;
+  color: #fff;
+  padding: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.c-button:hover {
+  background: #4b515e;
+}
+
+.c-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #cbd6ee;
 }

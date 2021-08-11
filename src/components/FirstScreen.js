@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import FirstScrList from './FirstScrList'
 import style from './screen.css'
 
 export default function FirstScreen() {
-  const history = useHistory()
+  // const history = useHistory()
   const [searchName, setSearchName] = useState('')
   const [isLoading, setIsLoading] = useState(null)
   const [searchData, setSearchData] = useState([])
@@ -15,14 +15,14 @@ export default function FirstScreen() {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    findUser(e)
+    findUsers(e)
   }
-  const findUser = async () => {
+  const findUsers = async () => {
     try {
       setIsLoading(true)
       await fetch(`https://api.github.com/search/users?q=${searchName}`)
         .then((res) => res.json())
-        .then((data) => setSearchData(data))
+        .then(({ items }) => setSearchData(items))
     } catch (e) {
       console.error(e)
     } finally {
@@ -33,12 +33,11 @@ export default function FirstScreen() {
   // useEffect(() => {
   //   findUser()
   // }, [])
-  console.log(searchName)
 
   const LoadingIndicator = () => <div className={style.loading}>Loading...</div>
-  const onDetailClick = (itm) => {
-    history.push(`/userDetails/${itm.id}`)
-  }
+  // const onDetailClick = (itm) => {
+  //   history.push(`/userDetails`, itm)
+  // }
   return (
     <div>
       <h1>GitHub Searcher</h1>
@@ -55,7 +54,7 @@ export default function FirstScreen() {
       {isLoading || isLoading === null ? (
         LoadingIndicator()
       ) : (
-        <FirstScrList onDetailClick={onDetailClick} items={searchData} />
+        <FirstScrList items={searchData} />
       )}
     </div>
   )

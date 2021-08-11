@@ -6,7 +6,7 @@ export default function FirstScrList({ items }) {
     <div>
       hello from first list screen
       {items.map((item) => (
-        <ScreenItem {...item} key={item.id} />
+        <ScreenItem item={item} key={item.id} />
       ))}
     </div>
   )

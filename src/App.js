@@ -12,7 +12,7 @@ function App() {
           <div>First screen</div>
           <FirstScreen />
         </Route>
-        <Route path="/userDetails/:id">
+        <Route path="/userDetails">
           <div>user details page</div>
           <SecondScreen />
         </Route>
